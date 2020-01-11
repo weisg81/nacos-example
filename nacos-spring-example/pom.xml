@@ -67,6 +67,7 @@
                 <version>${nacos-spring-context.version}</version>
             </dependency>
 
+
         </dependencies>
     </dependencyManagement>
 </project>
