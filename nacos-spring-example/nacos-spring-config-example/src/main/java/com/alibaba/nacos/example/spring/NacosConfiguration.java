@@ -18,6 +18,7 @@ import org.springframework.context.annotation.Configuration;
  * Group：DEFAULT_GROUP
  * <p>
  * 配置内容：useLocalCache=true
+ *
  */
 @NacosPropertySource(dataId = "example", autoRefreshed = true)
 public class NacosConfiguration {

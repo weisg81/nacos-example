@@ -11,12 +11,17 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 @RequestMapping("config")
 public class ConfigController {
 
-    @NacosValue(value = "${useLocalCache:false}", autoRefreshed = true)
-    private boolean useLocalCache;
+    /**
+     * 通过调用 Nacos Open API 向 Nacos server 发布配置：dataId 为example，内容为useLocalCache=true
+     * curl -X POST "http://127.0.0.1:8848/nacos/v1/cs/configs?dataId=example&group=DEFAULT_GROUP&content=useLocalCache=true"
+     */
+    //@NacosValue(value = "${useLocalCache:weisg}", autoRefreshed = true)
+    @NacosValue(value = "${useLocalCache}", autoRefreshed = true)
+    private Object useLocalCache;
 
     @RequestMapping(value = "/get", method = GET)
     @ResponseBody
-    public boolean get() {
+    public Object get() {
         return useLocalCache;
     }
 }
